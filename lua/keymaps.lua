@@ -5,10 +5,10 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = 'Goto [P]revious [D]iagnostic message' })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = 'Goto [N]ext [D]iagnostic message' })
-vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Show [D]iagnostic error [M]essage' })
-vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open [D]iagnostics [Q]uickfix list' })
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[P]revious Diagnostic' })
+vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[N]ext Diagnostic' })
+vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Display Diagnostic [M]essage' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open Diagnostics [Q]uickfix List' })
 
 -- Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -37,18 +37,6 @@ vim.keymap.set('n', 'J', ':m .+1<CR>==', { desc = 'Move line down in normal mode
 vim.keymap.set('x', 'K', ":move '<-2<CR>gv=gv", { desc = 'Move line up in visual mode' })
 vim.keymap.set('x', 'J', ":move '>+1<CR>gv=gv", { desc = 'Move line down in visual mode' })
 
--- Resize windows with vim motions (Linux)
--- vim.keymap.set('n', '<C-A-k>', ':resize +2<CR>', { desc = 'Increase window size vertically' })
--- vim.keymap.set('n', '<C-A-j>', ':resize -2<CR>', { desc = 'Decrease window size vertically' })
--- vim.keymap.set('n', '<C-A-h>', ':vertical resize -2<CR>', { desc = 'Decrease window size horizontally' })
--- vim.keymap.set('n', '<C-A-l>', ':vertical resize +2<CR>', { desc = 'Increase window size horizontally' })
-
--- Resize windows with vim motions (MacOs)
-vim.keymap.set('n', '<C-S-k>', ':resize +2<CR>', { desc = 'Increase window size vertically' })
-vim.keymap.set('n', '<C-S-j>', ':resize -2<CR>', { desc = 'Decrease window size vertically' })
-vim.keymap.set('n', '<C-S-h>', ':vertical resize -2<CR>', { desc = 'Decrease window size horizontally' })
-vim.keymap.set('n', '<C-S-l>', ':vertical resize +2<CR>', { desc = 'Increase window size horizontally' })
-
 -- Mappings to manage buffers
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Goto [N]ext [B]uffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Goto [P]revious [B]uffer' })
@@ -62,8 +50,20 @@ vim.keymap.set('n', '<leader>we', '<C-W>=', { desc = 'Make split [W]indows [E]qu
 vim.keymap.set('n', '<leader>wq', '<C-W>q', { desc = '[Q]uit current [W]indow' })
 
 -- Copilot keymaps
-vim.keymap.set('i', '<C-S-h>', '<Plug>(copilot-accept-word)', { desc = 'Accept Copilot next word suggestion' })
-vim.keymap.set('i', '<C-S-l>', '<Plug>(copilot-accept-line)', { desc = 'Accept Copilot next line suggestion' })
+vim.keymap.set('i', '<C-M-h>', '<Plug>(copilot-accept-word)', { desc = 'Accept Copilot next word suggestion' })
+vim.keymap.set('i', '<C-M-l>', '<Plug>(copilot-accept-line)', { desc = 'Accept Copilot next line suggestion' })
+
+-- Obsidian keymaps
+vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'Create [N]ew Note' })
+vim.keymap.set('n', '<leader>ot', ':ObsidianNewFromTemplate<CR>', { desc = 'Create New Note From [T]emplate' })
+vim.keymap.set('n', '<leader>os', ':ObsidianSearch<CR>', { desc = '[S]earch Notes' })
+vim.keymap.set({ 'n', 'v' }, '<leader>ol', ':ObsidianLink<CR>', { desc = '[L]ink Text Selection to a Note' })
+vim.keymap.set('n', '<leader>ok', ':ObsidianLinks<CR>', { desc = 'Search Lin[k]s in Buffer' })
+
+-- Spell checking keymaps
+vim.keymap.set('n', '<leader>pc', '<cmd>set spell!<CR>', { desc = 'Toggle Spell [C]heck' })
+vim.keymap.set('n', '<leader>pw', '[s1z=', { desc = 'Correct [W]ord' })
+vim.keymap.set('n', '<leader>pa', 'zg', { noremap = true, silent = true, desc = '[A]dd Word to Dictionary' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
