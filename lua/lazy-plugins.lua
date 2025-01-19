@@ -9,6 +9,9 @@ require('lazy').setup {
   -- Seamless resizing between neovim and tmux window splits
   'RyanMillerC/better-vim-tmux-resizer',
 
+  -- Saves Neovim sessions
+  'tpope/vim-obsession',
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following the plugin configuration.
   -- Use `opts = {}` to force a plugin to be loaded, which is equivalent to: `require('Comment').setup {}`.
