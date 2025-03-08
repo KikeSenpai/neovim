@@ -3,9 +3,6 @@
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: `owner/repo` link).
   --
-  -- Github copilot plugin
-  'github/copilot.vim',
-
   -- Seamless resizing between neovim and tmux window splits
   'RyanMillerC/better-vim-tmux-resizer',
 
@@ -51,7 +48,10 @@ require('lazy').setup {
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.indent-blankline',
   require 'kickstart.plugins.tree',
-  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.colorscheme',
+  require 'test.plugins.avante',
+  require 'test.plugins.copilot-chat',
+  -- require 'kickstart.plugins.lint',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },

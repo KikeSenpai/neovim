@@ -2,12 +2,17 @@
 
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
-  branch = 'canary',
+  event = 'VeryLazy',
+  lazy = false,
+  branch = 'main',
   dependencies = {
-    { 'github/copilot.vim' },
-    { 'nvim-lua/plenary.nvim' },
+    'zbirenbaum/copilot.lua',
+    'nvim-lua/plenary.nvim',
   },
-  build = 'make tiktoken', -- Only on MacOS or Linux
+
+  -- Only on MacOS or Linux
+  build = 'make tiktoken',
+
   opts = {
     question_header = '## Enrique ',
 
@@ -25,6 +30,7 @@ return {
         return nil
       end
     end,
+
     prompts = {
       Explain = {
         prompt = '/COPILOT_EXPLAIN\n\nWrite an explanation for the selected code.',
@@ -43,6 +49,8 @@ return {
       },
       Tests = {
         prompt = '/COPILOT_GENERATE\n\nPlease generate tests for the selected code.',
+        mapping = '<leader>ct',
+        description = 'Write [T]ests',
       },
       Commit = {
         prompt = '#git:staged\n\nWrite commit message for the changes using the conventional commits specification.',
@@ -50,13 +58,15 @@ return {
         description = 'Write a [C]ommit Message',
       },
       PrDescription = {
-        prompt = '#pr\n\nPlease generate a description for a pull request using the context provided from the git diff between the current branch and the main branch. It should have two sections: #1 titled What does this PR do? (with an emoji of a thinking face) describing the main goal and summary of the pull request, and #2 Detailed Changes (with the memo emoji) describing all changes, do not put the file names just describe the changes.',
+        prompt = '#pr\n\nPlease generate a description for a pull request using the context provided from the pr_diff text file. The description should have two sections: #1 titled What does this PR do? (with an emoji of a thinking face) describing the main goal and summary of the pull request, and #2 Detailed Changes (with the memo emoji) describing all changes, do not put the file names just describe the changes.',
         mapping = '<leader>cp',
         description = 'Write a [P]ull Request description',
       },
     },
+
     contexts = {
       pr = {
+        description = 'Includes the diff of the current branch against the main branch.',
         input = function(callback)
           callback()
         end,
@@ -72,17 +82,19 @@ return {
             {
               content = result,
               filename = 'pr_diff',
-              filetype = 'diff',
+              filetype = 'text',
             },
           }
         end,
       },
     },
+
     window = {
       layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace'
       width = 80, -- fractional width of parent, or absolute width in columns when > 1 (vertical)
       height = 0.5, -- fractional height of parent, or absolute height in rows when > 1 (horizontal)
-      -- Options below only apply to floating windows
+
+      -- NOTE: Options below only apply to floating windows
       relative = 'editor', -- 'editor', 'win', 'cursor', 'mouse'
       border = 'single', -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
       row = nil, -- row position of the window, default is centered
@@ -91,36 +103,12 @@ return {
       footer = nil, -- footer of chat window
       zindex = 1, -- determines if window is on top or below other floating windows
     },
+
     mappings = {
-      complete = {
-        detail = 'Use @<Tab> or /<Tab> for options.',
-        insert = '<S-Tab>',
-      },
-      close = {
-        normal = 'q',
-        insert = '<C-c>',
-      },
-      reset = {
-        normal = '<C-l>',
-        insert = '<C-l>',
-      },
-      submit_prompt = {
-        normal = '<CR>',
-        insert = '<C-s>',
-      },
-      accept_diff = {
-        normal = '<C-y>',
-        insert = '<C-y>',
-      },
-      yank_diff = {
-        normal = 'gy',
-        register = '"',
-      },
-      show_diff = { normal = 'gd' },
-      show_system_prompt = { normal = 'gp' },
-      show_user_selection = { normal = 'gs' },
+      complete = { insert = '<S-Tab>' },
     },
   },
+
   config = function(_, opts)
     vim.keymap.set({ 'n', 'v', 'x' }, '<leader>co', ':CopilotChat<CR>', { desc = '[O]pen Chat' })
     vim.keymap.set({ 'v', 'x' }, '<leader>ce', ':CopilotChatExplain<CR>', { desc = 'Write Code [E]xplanation' })

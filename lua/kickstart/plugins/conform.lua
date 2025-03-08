@@ -32,6 +32,7 @@ return {
       proto = { 'buf' },
       terraform = { 'terraform_fmt' },
       markdown = { 'markdownlint' },
+      json = { 'jq' },
     },
     default_format_opts = {
       lsp_format = 'never',

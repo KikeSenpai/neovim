@@ -49,16 +49,13 @@ vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split [W]indow [V]erticall
 vim.keymap.set('n', '<leader>we', '<C-W>=', { desc = 'Make split [W]indows [E]qual width' })
 vim.keymap.set('n', '<leader>wq', '<C-W>q', { desc = '[Q]uit current [W]indow' })
 
--- Copilot keymaps
-vim.keymap.set('i', '<C-M-h>', '<Plug>(copilot-accept-word)', { desc = 'Accept Copilot next word suggestion' })
-vim.keymap.set('i', '<C-M-l>', '<Plug>(copilot-accept-line)', { desc = 'Accept Copilot next line suggestion' })
-
 -- Obsidian keymaps
 vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'Create [N]ew Note' })
-vim.keymap.set('n', '<leader>ot', ':ObsidianNewFromTemplate<CR>', { desc = 'Create New Note From [T]emplate' })
+vim.keymap.set('n', '<leader>of', ':ObsidianNewFromTemplate<CR>', { desc = 'Create New Note [F]rom Template' })
 vim.keymap.set('n', '<leader>os', ':ObsidianSearch<CR>', { desc = '[S]earch Notes' })
 vim.keymap.set({ 'n', 'v' }, '<leader>ol', ':ObsidianLink<CR>', { desc = '[L]ink Text Selection to a Note' })
 vim.keymap.set('n', '<leader>ok', ':ObsidianLinks<CR>', { desc = 'Search Lin[k]s in Buffer' })
+vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>', { desc = 'Search for [T]ags Ocurrences' })
 
 -- Spell checking keymaps
 vim.keymap.set('n', '<leader>pc', '<cmd>set spell!<CR>', { desc = 'Toggle Spell [C]heck' })

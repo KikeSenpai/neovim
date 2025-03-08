@@ -7,8 +7,8 @@ return {
     'nvim-lua/plenary.nvim',
   },
   config = function()
-    local alpha = require('alpha')
-    local dashboard = require('alpha.themes.startify')
+    local alpha = require 'alpha'
+    local dashboard = require 'alpha.themes.startify'
 
     dashboard.section.header.val = {
       -- [[                                                                       ]],
@@ -72,7 +72,7 @@ return {
     }
 
     -- Keymaps
-    vim.keymap.set('n', '<leader>a', ':Alpha<CR>', { desc = 'Goto Greeter Screen' })
+    vim.keymap.set('n', '<leader>gg', ':Alpha<CR>', { desc = 'Goto [G]reeter Screen' })
 
     -- Set colors
     -- stylua: ignore

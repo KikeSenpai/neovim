@@ -23,6 +23,7 @@ return {
       'make',
       'dockerfile',
       'css',
+      'typescript',
     },
     auto_install = true, -- Autoinstall languages that are not installed
     highlight = {
