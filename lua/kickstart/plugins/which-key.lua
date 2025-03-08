@@ -20,6 +20,7 @@ return {
       { '<leader>o', group = '[O]bsidian' },
       { '<leader>p', group = 'S[p]ell Checking' },
       { '<leader>c', group = '[C]opilot', mode = { 'n', 'v' } },
+      { '<leader>a', group = '[A]vante' },
     }
   end,
 }

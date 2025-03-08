@@ -140,10 +140,11 @@ return {
       marksman = {},
       terraformls = {},
       tflint = {},
-      bufls = {},
       sqlls = {},
       dockerls = {},
       cssls = {},
+      ts_ls = {},
+      -- bufls = {},
       -- rust_analyzer = {},
 
       -- NOTE: You can add any additional override configuration inside a server's table. For example:
