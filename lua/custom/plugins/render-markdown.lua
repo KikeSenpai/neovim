@@ -9,5 +9,13 @@ return {
   opts = {
     file_types = { 'markdown', 'Avante' },
   },
-  ft = { 'markdown', 'Avante' },
+  ft = {
+    'markdown',
+    'Avante',
+    'CopilotChat',
+  },
+  config = function(_, opts)
+    vim.keymap.set('n', '<leader>mt', ':RenderMarkdown toggle<CR>', { desc = '[T]oggle Render Markdown' })
+    require('render-markdown').setup(opts)
+  end,
 }
