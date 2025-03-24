@@ -1,7 +1,6 @@
 --[[
 
   Configure Copilot Auto-Completion
-
   NOTE: Once copilot is running, run `:Copilot auth` to start the authentication process.
 
 --]]
