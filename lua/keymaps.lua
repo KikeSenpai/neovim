@@ -2,6 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 -- Clear highlight on search when on pressing <Esc> in normal mode
+--  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -38,8 +39,6 @@ vim.keymap.set('x', 'K', ":move '<-2<CR>gv=gv", { desc = 'Move line up in visual
 vim.keymap.set('x', 'J', ":move '>+1<CR>gv=gv", { desc = 'Move line down in visual mode' })
 
 -- Mappings to manage buffers
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Goto [N]ext [B]uffer' })
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Goto [P]revious [B]uffer' })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = '[D]elete current [B]uffer' })
 vim.keymap.set('n', '<leader>ba', ':%bd|edit#|bd#<CR>', { desc = 'Delete [A]ll [B]uffers except current' })
 
