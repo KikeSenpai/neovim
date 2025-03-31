@@ -68,16 +68,16 @@ else
   vim.g.maplocalleader = ' '
 
   -- Setting options
-  require 'vscode.options'
+  require 'visual-studio-code.options'
 
   -- Setting Keymaps
-  require 'vscode.keymaps'
+  require 'visual-studio-code.keymaps'
 
   -- Install `lazy.nvim` plugin manager
   require 'lazy-bootstrap'
 
   -- Install and setup plugins
-  require 'vscode.lazy-plugins'
+  require 'visual-studio-code.lazy-plugins'
 end
 
 -- vim: ts=2 sts=2 sw=2 et
