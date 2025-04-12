@@ -29,7 +29,6 @@ return {
       -- javascript = { { "prettierd", "prettier" } },
 
       lua = { 'stylua' },
-      proto = { 'buf' },
       terraform = { 'terraform_fmt' },
       markdown = { 'markdownlint' },
       json = { 'jq' },

@@ -14,21 +14,28 @@ return {
   build = 'make tiktoken',
 
   opts = {
-    question_header = '## Enrique ',
+    system_prompt = 'COPILOT_INSTRUCTIONS',
+    model = 'claude-3.7-sonnet',
+    answer_header = '  Copilot ',
+    question_header = ' Enrique ',
 
-    -- NOTE: Context to use (can be specified manually in prompt via #).
-    -- It can be one of: `buffer`, `buffers`, `file`, `files`, `git`.
+    -- NOTE: Contexts provide additional information to the chat. Add context using `#context_name[:input]` syntax.
+    -- Examples:
+    -- > #buffer
+    -- > #buffer:2
+    -- > #files:\*.lua
+    -- > #filenames
+    -- > #git:staged
+    -- > #url:https://example.com
+    -- > #system:`ls -la | grep lua`
+    --
+    -- Default context or array of contexts to use.
     context = nil,
 
-    -- Selection defaults to null if there is no visual selection.
+    -- Uses visual selection or falls back to buffer
     selection = function(source)
       local select = require 'CopilotChat.select'
-      local visual_selection = select.visual(source)
-      if visual_selection then
-        return visual_selection
-      else
-        return nil
-      end
+      return select.visual(source)
     end,
 
     prompts = {

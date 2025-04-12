@@ -31,10 +31,38 @@ vim.keymap.set('x', 'K', ":move '<-2<CR>gv=gv", { desc = 'Move line up in visual
 vim.keymap.set('x', 'J', ":move '>+1<CR>gv=gv", { desc = 'Move line down in visual mode' })
 
 -- Mappings to manage windows
-vim.keymap.set('n', '<leader>wh', '<C-W>s', { desc = 'Split [W]indow [H]orizontally' })
-vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split [W]indow [V]ertically' })
-vim.keymap.set('n', '<leader>we', '<C-W>=', { desc = 'Make split [W]indows [E]qual width' })
-vim.keymap.set('n', '<leader>wq', '<C-W>q', { desc = '[Q]uit current [W]indow' })
+vim.keymap.set(
+  'n',
+  '<leader>wh',
+  [[<cmd>call VSCodeNotify('workbench.action.splitEditorDown')<CR>]],
+  { desc = 'Split editor window horizontally to the bottom', silent = true }
+)
+vim.keymap.set(
+  'n',
+  '<leader>wv',
+  [[<cmd>call VSCodeNotify('workbench.action.splitEditorRight')<CR>]],
+  { desc = 'Split editor window vertically to the right', silent = true }
+)
+vim.keymap.set(
+  'n',
+  '<leader>wq',
+  [[<cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>]],
+  { desc = 'Close current editor window', silent = true }
+)
+
+-- Mappings to manage left sidebar
+vim.keymap.set(
+  'n',
+  '<leader>ef',
+  [[<cmd>call VSCodeNotify('workbench.files.action.focusFilesExplorer')<CR>]],
+  { desc = 'Focus file explorer', silent = true }
+)
+vim.keymap.set(
+  'n',
+  '<leader>ee',
+  [[<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>]],
+  { desc = 'Toggle sidebar', silent = true }
+)
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
