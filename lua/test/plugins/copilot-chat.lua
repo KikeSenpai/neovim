@@ -98,7 +98,7 @@ return {
 
     window = {
       layout = 'vertical', -- 'vertical', 'horizontal', 'float', 'replace'
-      width = 80, -- fractional width of parent, or absolute width in columns when > 1 (vertical)
+      width = 60, -- fractional width of parent, or absolute width in columns when > 1 (vertical)
       height = 0.5, -- fractional height of parent, or absolute height in rows when > 1 (horizontal)
 
       -- NOTE: Options below only apply to floating windows
@@ -112,7 +112,7 @@ return {
     },
 
     mappings = {
-      complete = { insert = '<S-Tab>' },
+      complete = { insert = '<Tab>' },
     },
   },
 

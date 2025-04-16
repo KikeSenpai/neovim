@@ -17,13 +17,19 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
+-- Keybinds to make window navigation easier
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Keybinds to make window resizing easier
+vim.keymap.set('n', '<C-S-Up>', ':TmuxResizeUp<CR>', { silent = true, desc = 'Increase window height' })
+vim.keymap.set('n', '<C-S-Down>', ':TmuxResizeDown<CR>', { silent = true, desc = 'Decrease window height' })
+vim.keymap.set('n', '<C-S-Left>', ':TmuxResizeLeft<CR>', { silent = true, desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-S-Right>', ':TmuxResizeRight<CR>', { silent = true, desc = 'Increase window width' })
 
 -- Set jk as scape key
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Escape from insert mode' })

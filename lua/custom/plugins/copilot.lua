@@ -29,10 +29,10 @@ return {
         keymap = {
           accept = '<M-CR>',
           accept_word = false,
-          accept_line = '<M-l>',
+          accept_line = false,
           next = '<M-]>',
           prev = '<M-[>',
-          dismiss = '<M-h>',
+          dismiss = false,
         },
       },
       filetypes = {
