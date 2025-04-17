@@ -31,29 +31,53 @@ TODO: The very first thing you should do is to run the command `:Tutor` in Neovi
 
 --]]
 
--- Set <space> as the leader key
--- See `:help mapleader`
---  WARN: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+if not vim.g.vscode then
+  -- NOTE: Load the configuration for Neovim
 
--- Assign a virtualenv for Neovim so that the `pynvim` package is not required for each virtualenv
--- See `:help provider-python`
-vim.g.python3_host_prog = '/Users/enrique.perez/.pyenv/versions/py3.12-nvim/bin/python'
+  -- Set <space> as the leader key
+  -- See `:help mapleader`
+  --  WARN: Must happen before plugins are loaded (otherwise wrong leader will be used)
+  vim.g.mapleader = ' '
+  vim.g.maplocalleader = ' '
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
+  -- Assign a virtualenv for Neovim so that the `pynvim` package is not required for each virtualenv
+  -- See `:help provider-python`
+  vim.g.python3_host_prog = '/Users/enrique.perez/.pyenv/versions/py3.12-nvim/bin/python'
 
--- Setting options
-require 'options'
+  -- Set to true if you have a Nerd Font installed and selected in the terminal
+  vim.g.have_nerd_font = true
 
--- Setting Keymaps
-require 'keymaps'
+  -- Setting options
+  require 'options'
 
--- Install `lazy.nvim` plugin manager
-require 'lazy-bootstrap'
+  -- Setting Keymaps
+  require 'keymaps'
 
--- Install and setup plugins
-require 'lazy-plugins'
+  -- Install `lazy.nvim` plugin manager
+  require 'lazy-bootstrap'
+
+  -- Install and setup plugins
+  require 'lazy-plugins'
+else
+  -- NOTE: Load the configuration for VSCode
+
+  -- Set <space> as the leader key
+  -- See `:help mapleader`
+  --  WARN: Must happen before plugins are loaded (otherwise wrong leader will be used)
+  vim.g.mapleader = ' '
+  vim.g.maplocalleader = ' '
+
+  -- Setting options
+  require 'visual-studio-code.options'
+
+  -- Setting Keymaps
+  require 'visual-studio-code.keymaps'
+
+  -- Install `lazy.nvim` plugin manager
+  require 'lazy-bootstrap'
+
+  -- Install and setup plugins
+  require 'visual-studio-code.lazy-plugins'
+end
 
 -- vim: ts=2 sts=2 sw=2 et

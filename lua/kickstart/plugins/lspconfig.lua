@@ -134,25 +134,23 @@ return {
     -- Enable the following language servers.
     -- See `:help lspconfig-all` for a list of all the pre-configured LSPs.
     local servers = {
-      pyright = {},
-      yamlls = {},
+      cssls = {},
+      dockerls = {},
       jsonls = {},
+      kotlin_language_server = {},
       marksman = {},
+      pyright = {},
+      sqlls = {},
       terraformls = {},
       tflint = {},
-      sqlls = {},
-      dockerls = {},
-      cssls = {},
       ts_ls = {},
-      -- bufls = {},
-      -- rust_analyzer = {},
+      yamlls = {},
 
       -- NOTE: You can add any additional override configuration inside a server's table. For example:
       -- * cmd: Override the default command used to start the server
       -- * filetypes: Override the default list of associated filetypes for the server
       -- * capabilities: Override fields in capabilities. Can be used to disable certain LSP features.
       -- * settings: Override the default settings passed when initializing the server.
-      --
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -179,9 +177,9 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
-      'buf',
       'markdownlint',
       'luacheck',
+      'jq',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {

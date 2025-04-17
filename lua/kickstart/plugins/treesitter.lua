@@ -24,6 +24,7 @@ return {
       'dockerfile',
       'css',
       'typescript',
+      'kotlin',
     },
     auto_install = true, -- Autoinstall languages that are not installed
     highlight = {
@@ -32,11 +33,11 @@ return {
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
       -- If you are experiencing weird indenting issues, add the language to
       -- the list of additional_vim_regex_highlighting and disabled languages for indent.
-      additional_vim_regex_highlighting = { 'ruby' },
+      additional_vim_regex_highlighting = {},
     },
     indent = {
       enable = true,
-      disabled = { 'ruby' },
+      disabled = {},
     },
   },
   config = function(_, opts)

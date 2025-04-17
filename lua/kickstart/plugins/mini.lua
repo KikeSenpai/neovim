@@ -11,10 +11,12 @@ return {
     require('mini.ai').setup { n_lines = 500 }
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
-    -- NOTE: Examples
-    --   saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-    --   sd'   - [S]urround [D]elete [']quotes
-    --   sr)'  - [S]urround [R]eplace [)] [']
+    --
+    -- Examples:
+    --   saiw)  - [S]urround [A]dd [I]nner [W]ord [)]Paren
+    --   sd'    - [S]urround [D]elete [']quotes
+    --   sr)'   - [S]urround [R]eplace [)] [']
+    --   2saiw* - [S]urround [A]dd [I]nner [W]ord [2]two [*]Asterisks
     require('mini.surround').setup()
 
     -- Better navigation and manipulation of the file system
@@ -31,7 +33,12 @@ return {
     -- Auto-pairs for quotes, brackets, etc.
     require('mini.pairs').setup()
 
-    -- Go to the next/previous element with square brackets.
+    -- Go to the next/previous element using square brackets.
+    -- Examples:
+    --  [b - Go to the previous [B]uffer
+    --  ]b - Go to the next [B]uffer
+    --  [B - Go to the first [B]uffer
+    --  ]B - Go to the last [B]uffer
     require('mini.bracketed').setup()
   end,
 }

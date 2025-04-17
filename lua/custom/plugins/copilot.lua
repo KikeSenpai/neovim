@@ -1,7 +1,6 @@
 --[[
 
   Configure Copilot Auto-Completion
-
   NOTE: Once copilot is running, run `:Copilot auth` to start the authentication process.
 
 --]]
@@ -30,10 +29,10 @@ return {
         keymap = {
           accept = '<M-CR>',
           accept_word = false,
-          accept_line = '<M-l>',
+          accept_line = false,
           next = '<M-]>',
           prev = '<M-[>',
-          dismiss = '<C-]>',
+          dismiss = false,
         },
       },
       filetypes = {
