@@ -1,4 +1,4 @@
--- [[ Install plugins ]]
+-- [[ Plugins installation ]]
 
 require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: `owner/repo` link).
@@ -55,8 +55,9 @@ require('lazy').setup {
   -- require 'kickstart.plugins.lint',
 
   -- NOTE: Plugins that I am testing so they don't form part of my stack yet.
-  require 'test.plugins.copilot-chat',
+  --
   -- require 'test.plugins.avante',
+  require 'test.plugins.diagram',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },

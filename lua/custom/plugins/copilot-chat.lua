@@ -69,6 +69,11 @@ return {
         mapping = '<leader>cp',
         description = 'Write a [P]ull Request description',
       },
+      PythonDocstring = {
+        prompt = '/COPILOT_GENERATE\n\nGenerate a docstring for the selected function code, remember to use the google convention for docstrings.',
+        mapping = '<leader>cd',
+        description = 'Write [D]ocstring',
+      },
     },
 
     contexts = {

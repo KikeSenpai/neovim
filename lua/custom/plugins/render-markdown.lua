@@ -1,4 +1,4 @@
--- [[ Plugin to improve viewing Markdown files in Neovim ]]
+-- [[ Plugin to improve the rendering of Markdown files ]]
 
 return {
   'MeanderingProgrammer/render-markdown.nvim',
