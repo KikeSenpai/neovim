@@ -7,7 +7,11 @@ return {
   },
   opts = { -- you can just pass {}, defaults below
     events = {
-      render_buffer = { 'InsertLeave', 'BufWinEnter', 'TextChanged' },
+      render_buffer = {
+        'InsertLeave',
+        'BufWinEnter',
+        'TextChanged',
+      },
       clear_buffer = { 'BufLeave' },
     },
     renderer_options = {
@@ -20,4 +24,7 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require('diagram').setup(opts)
+  end,
 }

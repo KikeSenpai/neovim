@@ -57,7 +57,8 @@ require('lazy').setup {
   -- NOTE: Plugins that I am testing so they don't form part of my stack yet.
   --
   -- require 'test.plugins.avante',
-  require 'test.plugins.diagram',
+  -- require 'test.plugins.diagram',
+  -- require 'test.plugins.image',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },
