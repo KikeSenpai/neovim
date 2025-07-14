@@ -84,4 +84,10 @@ vim.g.tmux_resizer_no_mappings = 1
 vim.g.tmux_resizer_resize_count = 2
 vim.g.tmux_resizer_vertical_resize_count = 2
 
+vim.filetype.add {
+  extension = {
+    lock = 'toml',
+  },
+}
+
 -- vim: ts=2 sts=2 sw=2 et

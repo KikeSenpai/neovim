@@ -63,6 +63,18 @@ vim.keymap.set(
   [[<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>]],
   { desc = 'Toggle sidebar', silent = true }
 )
+vim.keymap.set(
+  'n',
+  '<leader>sg',
+  [[<cmd>call VSCodeNotify('workbench.action.findInFiles')<CR>]],
+  { desc = 'Search across all files in the codebase', silent = true }
+)
+vim.keymap.set(
+  'n',
+  '<leader>sr',
+  [[<cmd>call VSCodeNotify('workbench.action.replaceInFiles')<CR>]],
+  { desc = 'Search and Replace across all files in the codebase', silent = true }
+)
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
