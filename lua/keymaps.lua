@@ -92,4 +92,10 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
+-- Set filetype for JSONL files
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.jsonl',
+  command = 'set filetype=json',
+})
+
 -- vim: ts=2 sts=2 sw=2 et

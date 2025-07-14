@@ -35,7 +35,7 @@ return {
     -- Uses visual selection or falls back to buffer
     selection = function(source)
       local select = require 'CopilotChat.select'
-      return select.visual(source)
+      return select.visual(source) or select.buffer(source)
     end,
 
     prompts = {
@@ -68,6 +68,11 @@ return {
         prompt = '#pr\n\nPlease generate a description for a pull request using the context provided from the pr_diff text file. The description should have two sections: #1 titled What does this PR do? (with an emoji of a thinking face) describing the main goal and summary of the pull request, and #2 Detailed Changes (with the memo emoji) describing all changes, do not put the file names just describe the changes.',
         mapping = '<leader>cp',
         description = 'Write a [P]ull Request description',
+      },
+      PythonDocstring = {
+        prompt = '/COPILOT_GENERATE\n\nGenerate a docstring for the selected function code, remember to use the google convention for docstrings.',
+        mapping = '<leader>cd',
+        description = 'Write [D]ocstring',
       },
     },
 

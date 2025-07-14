@@ -1,11 +1,7 @@
---[[
-
-  Configure Copilot Auto-Completion
-  NOTE: Once copilot is running, run `:Copilot auth` to start the authentication process.
-
---]]
+--[[ Configure Copilot Auto-Completion ]]
 
 return {
+  -- NOTE: Once copilot is running, run `:Copilot auth` to start the authentication process.
   'zbirenbaum/copilot.lua',
   cmd = 'Copilot',
   event = 'InsertEnter',
@@ -28,7 +24,7 @@ return {
         debounce = 75,
         keymap = {
           accept = '<M-CR>',
-          accept_word = false,
+          accept_word = '<M-space>',
           accept_line = false,
           next = '<M-]>',
           prev = '<M-[>',
@@ -45,6 +41,7 @@ return {
         css = true,
         sql = true,
         make = true,
+        sh = true,
       },
     }
   end,
