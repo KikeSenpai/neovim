@@ -17,10 +17,11 @@ return {
   {
     'rcarriga/nvim-notify',
     config = function()
+      ---@diagnostic disable: missing-fields
       require('notify').setup {
-        render = 'wrapped-default',
+        render = 'wrapped-compact',
+        fps = 60,
         max_width = 50,
-        timeout = 100,
         top_down = false,
       }
     end,

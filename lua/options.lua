@@ -1,10 +1,10 @@
 -- [[ Setting options ]]
 
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
 
 --  Add relative line numbers
-vim.wo.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -35,7 +35,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250

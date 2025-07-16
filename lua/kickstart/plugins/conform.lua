@@ -4,18 +4,18 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  lazy = false,
   keys = {
     {
       '<leader>f',
       function()
         require('conform').format { async = true }
       end,
-      mode = 'n',
+      mode = '',
       desc = '[F]ormat the current buffer',
     },
   },
   opts = {
+    notify_on_error = false,
     formatters_by_ft = {
       -- NOTE: Conform can also run multiple formatters sequentially
       --
@@ -37,22 +37,20 @@ return {
       lsp_format = 'never',
     },
     format_on_save = function(bufnr)
-      local ignore_files = {
+      local disable_filetypes = {
         'proto',
         'markdown',
       }
-      if vim.tbl_contains(ignore_files, vim.bo[bufnr].filetype) then
-        return
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        return nil
+      else
+        return {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
+        }
       end
-      return {
-        lsp_format = 'never',
-        timeout_ms = 500,
-      }
     end,
   },
-  init = function()
-    vim.o.formatexpr = 'v:lua.require("conform").formatexpr()'
-  end,
 }
 
 -- vim: ts=2 sts=2 sw=2 et
