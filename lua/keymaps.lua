@@ -6,8 +6,6 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[P]revious Diagnostic' })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[N]ext Diagnostic' })
 vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Display Diagnostic [M]essage' })
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open Diagnostics [Q]uickfix List' })
 

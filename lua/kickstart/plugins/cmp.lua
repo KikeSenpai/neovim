@@ -41,12 +41,13 @@ return {
       -- https://cmp.saghen.dev/configuration/keymap.html
       preset = 'default',
 
+      ['<C-e>'] = false,
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
-      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-      ['<C-y>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      ['<C-l>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-h>'] = { 'show_signature', 'hide_signature', 'fallback' },
       ['<Tab>'] = {
         function(cmp)
           if cmp.snippet_active() then
