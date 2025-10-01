@@ -48,7 +48,7 @@ return {
       ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
       ['<C-l>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-h>'] = { 'show_signature', 'hide_signature', 'fallback' },
-      ['<Tab>'] = {
+      ['<CR>'] = {
         function(cmp)
           if cmp.snippet_active() then
             return cmp.accept()

@@ -63,6 +63,8 @@ vim.keymap.set(
   [[<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>]],
   { desc = 'Toggle sidebar', silent = true }
 )
+
+-- Mappings for searching
 vim.keymap.set(
   'n',
   '<leader>sg',
@@ -74,6 +76,12 @@ vim.keymap.set(
   '<leader>sr',
   [[<cmd>call VSCodeNotify('workbench.action.replaceInFiles')<CR>]],
   { desc = 'Search and Replace across all files in the codebase', silent = true }
+)
+vim.keymap.set(
+  'n',
+  '<leader>sf',
+  [[<cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>]],
+  { desc = 'Search files in workspace', silent = true }
 )
 
 -- [[ Basic Autocommands ]]
