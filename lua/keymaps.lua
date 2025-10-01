@@ -6,8 +6,6 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = '[P]revious Diagnostic' })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = '[N]ext Diagnostic' })
 vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Display Diagnostic [M]essage' })
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open Diagnostics [Q]uickfix List' })
 
@@ -71,12 +69,12 @@ vim.keymap.set('n', '<leader>pa', 'zg', { noremap = true, silent = true, desc = 
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
---  See `:help vim.highlight.on_yank()`
+--  See `:help vim.hl.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 

@@ -25,6 +25,8 @@ return {
       'css',
       'typescript',
       'kotlin',
+      'regex',
+      'diff',
     },
     auto_install = true, -- Autoinstall languages that are not installed
     highlight = {
@@ -37,7 +39,7 @@ return {
     },
     indent = {
       enable = true,
-      disabled = {},
+      disable = {},
     },
   },
   config = function(_, opts)

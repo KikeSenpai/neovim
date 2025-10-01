@@ -10,9 +10,6 @@ return {
     'nvim-lua/plenary.nvim',
   },
 
-  -- Only on MacOS or Linux
-  build = 'make tiktoken',
-
   opts = {
     system_prompt = 'COPILOT_INSTRUCTIONS',
     model = 'claude-3.7-sonnet',
