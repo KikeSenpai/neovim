@@ -59,7 +59,7 @@ return {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
     'nvim-telescope/telescope.nvim',
-    'hrsh7th/nvim-cmp',
+    'saghen/blink.cmp',
     'nvim-tree/nvim-web-devicons',
     'zbirenbaum/copilot.lua',
 

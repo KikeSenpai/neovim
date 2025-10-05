@@ -61,6 +61,8 @@ require('lazy').setup {
   -- require 'test.plugins.image',
   -- require 'test.plugins.copilot',
   -- require 'test.plugins.copilot-chat',
+  require 'test.plugins.codecompanion',
+  require 'test.plugins.img-clip',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },
