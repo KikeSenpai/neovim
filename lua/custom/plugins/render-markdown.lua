@@ -7,12 +7,16 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   opts = {
-    file_types = { 'markdown', 'Avante' },
+    file_types = {
+      'markdown',
+      'Avante',
+    },
   },
   ft = {
     'markdown',
     'Avante',
     'CopilotChat',
+    'codecompanion',
   },
   config = function(_, opts)
     vim.keymap.set('n', '<leader>mt', ':RenderMarkdown toggle<CR>', { desc = '[T]oggle Render Markdown' })

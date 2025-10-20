@@ -54,13 +54,15 @@ require('lazy').setup {
   --
   -- require 'kickstart.plugins.lint',
 
-  -- NOTE: Plugins that I am testing so they don't form part of my stack yet.
+  -- NOTE: Plugins that I am testing so they don't form part of my permanent config.
   --
   -- require 'test.plugins.avante',
   -- require 'test.plugins.diagram',
   -- require 'test.plugins.image',
   -- require 'test.plugins.copilot',
   -- require 'test.plugins.copilot-chat',
+  -- require 'test.plugins.codecompanion',
+  -- require 'test.plugins.img-clip',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },
