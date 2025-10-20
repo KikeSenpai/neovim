@@ -46,7 +46,6 @@ return {
       [[      ██████████████                                                                                                                       ]],
       [[          ██████████                                                                                                                       ]],
       [[                                                                                                                                           ]],
-      [[                                                                N E O V I M                                                                ]],
     }
 
     dashboard.section.top_buttons.val = {
@@ -65,7 +64,9 @@ return {
     -- Set footer
     local footer = [[
       
-      Where people & AI join forces.
+      
+      
+      Make every customer interaction as easy as talking to a friend.
     ]]
     dashboard.section.footer.val = {
       {
