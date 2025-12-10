@@ -24,9 +24,10 @@ return {
     require('mini.files').setup {
       mappings = {
         go_in = 'L',
-        go_in_plus = '',
+        go_in_plus = '<M-l>',
         go_out = 'H',
-        go_out_plus = '',
+        go_out_plus = '<M-h>',
+        synchronize = 'U',
       },
     }
 

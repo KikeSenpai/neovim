@@ -25,18 +25,18 @@ return {
 -- Catppuccin Theme
 -- return {
 --   'catppuccin/nvim',
---   name = "catppuccin", -- name is needed otherwise plugin shows up as "nvim" due to github URI
+--   name = 'catppuccin', -- name is needed otherwise plugin shows up as "nvim" due to github URI
 --   lazy = false, -- We want the colorscheme to load immediately when starting Neovim
 --   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
 --   opts = {
 --     -- Replace this with your scheme-specific settings or remove to use the defaults
 --     -- transparent = true,
---     flavour = "mocha", -- available variations: "latte, frappe, macchiato, mocha"
+--     flavour = 'macchiato', -- available variations: "latte, frappe, macchiato, mocha"
 --   },
 --   config = function(_, opts)
 --     require('catppuccin').setup(opts)
 --     vim.cmd.colorscheme 'catppuccin'
---   end
+--   end,
 -- }
 
 -- Kanagawa Theme

@@ -11,7 +11,7 @@ return {
       function()
         require('flash').jump()
       end,
-      desc = '[J]ump to [P]attern',
+      desc = 'Jump to [P]attern',
     },
     {
       '<leader>jt',
@@ -19,7 +19,7 @@ return {
       function()
         require('flash').treesitter()
       end,
-      desc = '[J]ump to syntax [T]ree block',
+      desc = 'Jump to syntax [T]ree block',
     },
     -- {
     --   'r',

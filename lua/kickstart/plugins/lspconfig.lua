@@ -141,9 +141,9 @@ return {
           -- code, if the language server you are using supports them.
           -- NOTE: This may be unwanted, since they displace some of your code
           if client and client.server_capabilities.inlayHintProvider then
-            map('<leader>th', function()
+            map('<leader>li', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            end, 'Toggle [I]nlay Hints')
           end
         end,
       })
@@ -195,14 +195,14 @@ return {
         cssls = {},
         dockerls = {},
         jsonls = {},
-        kotlin_language_server = {},
         marksman = {},
         pyright = {},
-        sqlls = {},
         tflint = {},
         terraformls = {},
         ts_ls = {},
         yamlls = {},
+        sqls = {},
+        html = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
