@@ -32,7 +32,7 @@ return {
       { '<leader>o', group = '[O]bsidian' },
       { '<leader>p', group = 'S[p]ell Checking' },
       { '<leader>m', group = '[M]arkdown', mode = { 'n' } },
-      -- { '<leader>e', group = 'File [E]xplorer' },
+      { '<leader>e', group = 'File [E]xplorer' },
       -- { '<leader>c', group = '[C]opilot', mode = { 'n', 'v' } },
       -- { '<leader>a', group = '[A]I' },
     },

@@ -14,7 +14,7 @@ language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc). These Language Serve
 processes that communicate with some "client" - in this case, Neovim!
 
 LSP provides Neovim with features like:
-  * Go to definition.
+  * Goto definition.
   * Find references.
   * Autocompletion.
   * Symbol Search.
@@ -69,11 +69,11 @@ return {
           end
 
           -- Find references for the word under your cursor.
-          map('<leader>gr', require('telescope.builtin').lsp_references, 'Goto [R]eferences')
+          map('<leader>sr', require('telescope.builtin').lsp_references, 'Search for [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           -- NOTE: Useful when your language has ways of declaring types without an actual implementation.
-          map('<leader>gi', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementations')
+          map('<leader>gi', require('telescope.builtin').lsp_implementations, 'Goto [I]mplementation')
 
           -- Jump to the declaration of the word under your cursor.
           -- NOTE: For example, in C this would take you to the header.
@@ -87,7 +87,7 @@ return {
           -- Jump to the type definition of the word under your cursor.
           -- NOTE: Useful when you're not sure what type a variable is and you want to see
           -- the definition of its type, not where it was defined.
-          map('<leader>st', require('telescope.builtin').lsp_type_definitions, 'Search [T]ype definition')
+          map('<leader>gt', require('telescope.builtin').lsp_type_definitions, 'Goto [T]ype definition')
 
           -- Fuzzy find all the symbols in your current document.
           -- NOTE: Symbols are things like variables, functions, types, etc.
@@ -100,10 +100,6 @@ return {
           -- Rename the variable under your cursor.
           -- NOTE: Most LSPs support renaming across files, but some do not.
           map('<leader>lr', vim.lsp.buf.rename, '[R]ename all references')
-
-          -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
-          map('<leader>la', vim.lsp.buf.code_action, 'Execute a code [A]ction', { 'n', 'x' })
 
           -- Displays an information window about the symbol under the cursor.
           -- NOTE: Using the keymap twice jumps the cursor into the information window.
@@ -128,6 +124,7 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
 
+            -- Clear the highlights when the LSP client detaches.
             vim.api.nvim_create_autocmd('LspDetach', {
               group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
               callback = function(event2)
@@ -135,15 +132,6 @@ return {
                 vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
               end,
             })
-          end
-
-          -- The following code creates a keymap to toggle inlay hints in your
-          -- code, if the language server you are using supports them.
-          -- NOTE: This may be unwanted, since they displace some of your code
-          if client and client.server_capabilities.inlayHintProvider then
-            map('<leader>li', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, 'Toggle [I]nlay Hints')
           end
         end,
       })
@@ -203,21 +191,8 @@ return {
         yamlls = {},
         sqls = {},
         html = {},
-        lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = { callSnippet = 'Replace' },
-              runtime = { version = 'LuaJIT' },
-              diagnostics = {
-                disable = { 'missing-fields' },
-                globals = { 'vim' },
-              },
-            },
-          },
-        },
+        kcl = {},
+        lua_ls = {},
       }
 
       -- Ensure the servers and tools above are installed.
@@ -245,6 +220,26 @@ return {
           end,
         },
       }
+      require('lspconfig').helm_ls.setup {
+        settings = {
+          ['helm-ls'] = {
+            yamlls = {
+              path = 'yaml-language-server',
+            },
+          },
+        },
+      }
+    end,
+  },
+  {
+    'kcl-lang/kcl.nvim',
+    ft = 'kcl',
+    config = function()
+      -- filetype detection for .k files
+      vim.filetype.add { extension = { k = 'kcl' } }
+
+      -- start the KCL language server
+      require('lspconfig').kcl.setup {}
     end,
   },
 }
