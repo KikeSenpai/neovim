@@ -193,7 +193,23 @@ return {
         html = {},
         kcl = {},
         lua_ls = {},
+        helm_ls = {
+          settings = {
+            ['helm-ls'] = {
+              yamlls = {
+                path = 'yaml-language-server',
+              },
+            },
+          },
+        },
       }
+
+      -- Configure and enable each server using the native vim.lsp API (Neovim 0.11+)
+      for server_name, server in pairs(servers) do
+        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        vim.lsp.config(server_name, server)
+      end
+      vim.lsp.enable(vim.tbl_keys(servers))
 
       -- Ensure the servers and tools above are installed.
       -- NOTE: You can add other tools here that you want Mason to install,
@@ -207,27 +223,8 @@ return {
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
       require('mason-lspconfig').setup {
-        -- Explicitly set to an empty table (config populates installs via mason-tool-installer)
         ensure_installed = {},
         automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed by the server configuration above.
-            -- Useful when disabling certain features of an LSP.
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
-      require('lspconfig').helm_ls.setup {
-        settings = {
-          ['helm-ls'] = {
-            yamlls = {
-              path = 'yaml-language-server',
-            },
-          },
-        },
       }
     end,
   },
@@ -238,8 +235,7 @@ return {
       -- filetype detection for .k files
       vim.filetype.add { extension = { k = 'kcl' } }
 
-      -- start the KCL language server
-      require('lspconfig').kcl.setup {}
+      -- start the KCL language server (configured and enabled in lspconfig block above)
     end,
   },
 }
