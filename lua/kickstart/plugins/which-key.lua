@@ -3,26 +3,42 @@
 return {
   'folke/which-key.nvim',
   event = 'VimEnter', -- Load after vim has started
-  config = function() -- Setup configuration running after plugin is loaded
-    require('which-key').setup()
+  opts = {
+    delay = 0,
+    preset = false,
+    icons = {
+      mappings = vim.g.have_nerd_font,
+    },
+    win = {
+      no_overlap = true,
+      border = 'rounded',
+      padding = { 1, 2 },
+      row = math.huge,
+      col = math.huge,
+      width = 45,
+      height = { min = 4, max = 25 },
+    },
 
     -- Document existing key chains
-    require('which-key').add {
+    spec = {
       { '<leader>d', group = '[D]iagnostic' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>w', group = '[W]indow' },
       { '<leader>b', group = '[B]uffer' },
-      { '<leader>e', group = 'File [E]xplorer' },
       { '<leader>g', group = '[G]oto' },
       { '<leader>l', group = '[L]SP' },
       { '<leader>j', group = '[J]ump anywhere' },
       { '<leader>h', group = 'Git [H]unks', mode = { 'n', 'v' } },
       { '<leader>o', group = '[O]bsidian' },
       { '<leader>p', group = 'S[p]ell Checking' },
-      { '<leader>c', group = '[C]opilot', mode = { 'n', 'v' } },
-      { '<leader>a', group = '[A]I' },
       { '<leader>m', group = '[M]arkdown', mode = { 'n' } },
-    }
+      { '<leader>e', group = 'File [E]xplorer' },
+      -- { '<leader>c', group = '[C]opilot', mode = { 'n', 'v' } },
+      -- { '<leader>a', group = '[A]I' },
+    },
+  },
+  config = function(_, opts)
+    require('which-key').setup(opts)
   end,
 }
 

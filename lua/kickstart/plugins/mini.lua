@@ -20,15 +20,43 @@ return {
     require('mini.surround').setup()
 
     -- Better navigation and manipulation of the file system
-    vim.keymap.set('n', '<leader>em', ':lua MiniFiles.open()<CR>', { desc = 'Open [M]ini File Explorer' })
-    require('mini.files').setup {
+    local mini_files = require 'mini.files'
+    vim.keymap.set('n', '<leader>em', function()
+      mini_files.open()
+    end, { desc = 'Open [M]ini File Explorer' })
+    mini_files.setup {
       mappings = {
         go_in = 'L',
         go_in_plus = '',
         go_out = 'H',
         go_out_plus = '',
+        synchronize = 'U',
       },
     }
+
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'MiniFilesBufferCreate',
+      callback = function(args)
+        local buf = args.data.buf_id
+
+        vim.keymap.set('n', 'L', function()
+          local entry = mini_files.get_fs_entry()
+          if entry and entry.fs_type == 'file' then
+            mini_files.go_in { close_on_file = true }
+          else
+            mini_files.go_in()
+          end
+        end, { buffer = buf, desc = 'Go in (close on file)' })
+
+        vim.keymap.set('n', '<C-v>', function()
+          local entry = mini_files.get_fs_entry()
+          if entry and entry.fs_type == 'file' then
+            mini_files.close()
+            vim.cmd('vsplit ' .. vim.fn.fnameescape(entry.path))
+          end
+        end, { buffer = buf, desc = 'Open in vertical split' })
+      end,
+    })
 
     -- Auto-pairs for quotes, brackets, etc.
     require('mini.pairs').setup()

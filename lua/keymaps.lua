@@ -44,26 +44,32 @@ vim.keymap.set('x', 'J', ":move '>+1<CR>gv=gv", { desc = 'Move line down in visu
 
 -- Mappings to manage buffers
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = '[D]elete current [B]uffer' })
-vim.keymap.set('n', '<leader>ba', ':%bd|edit#|bd#<CR>', { desc = 'Delete [A]ll [B]uffers except current' })
+vim.keymap.set('n', '<leader>ba', ':%bd|edit#|bd#<CR>', { desc = 'Delete [A]ll [B]uffers' })
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Goto [N]ext [B]uffer' })
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Goto [P]revious [B]uffer' })
 
 -- Mappings to manage windows
-vim.keymap.set('n', '<leader>wh', '<C-W>s', { desc = 'Split [W]indow [H]orizontally' })
-vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split [W]indow [V]ertically' })
-vim.keymap.set('n', '<leader>we', '<C-W>=', { desc = 'Make split [W]indows [E]qual width' })
-vim.keymap.set('n', '<leader>wq', '<C-W>q', { desc = '[Q]uit current [W]indow' })
+vim.keymap.set('n', '<leader>wh', '<C-W>s', { desc = 'Split Window [H]orizontally' })
+vim.keymap.set('n', '<leader>wv', '<C-W>v', { desc = 'Split Window [V]ertically' })
+vim.keymap.set('n', '<leader>we', '<C-W>=', { desc = 'Make split Windows [E]qual width' })
+vim.keymap.set('n', '<leader>wq', '<C-W>q', { desc = '[Q]uit current Window' })
 
 -- Obsidian keymaps
 vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'Create [N]ew Note' })
-vim.keymap.set('n', '<leader>of', ':ObsidianNewFromTemplate<CR>', { desc = 'Create New Note [F]rom Template' })
+vim.keymap.set('n', '<leader>of', ':ObsidianNewFromTemplate<CR>', { desc = 'New Note [F]rom Template' })
 vim.keymap.set('n', '<leader>os', ':ObsidianSearch<CR>', { desc = '[S]earch Notes' })
-vim.keymap.set({ 'n', 'v' }, '<leader>ol', ':ObsidianLink<CR>', { desc = '[L]ink Text Selection to a Note' })
+vim.keymap.set({ 'n', 'v' }, '<leader>ol', ':ObsidianLink<CR>', { desc = '[L]ink Selection to Note' })
 vim.keymap.set('n', '<leader>ok', ':ObsidianLinks<CR>', { desc = 'Search Lin[k]s in Buffer' })
 vim.keymap.set('n', '<leader>ot', ':ObsidianTags<CR>', { desc = 'Search for [T]ags Ocurrences' })
 
 -- Spell checking keymaps
-vim.keymap.set('n', '<leader>pc', '<cmd>set spell!<CR>', { desc = 'Toggle Spell [C]heck' })
-vim.keymap.set('n', '<leader>pw', '[s1z=', { desc = 'Correct [W]ord' })
+vim.keymap.set('n', '<leader>pt', '<cmd>set spell!<CR>', { desc = '[T]oggle Spell Check' })
+vim.keymap.set('n', '<leader>pc', '[s1z=', { desc = '[C]orrect Word' })
 vim.keymap.set('n', '<leader>pa', 'zg', { noremap = true, silent = true, desc = '[A]dd Word to Dictionary' })
+
+-- Navigate between quickfix list items
+vim.keymap.set('n', '<leader>gq', ':cnext<CR>zz', { desc = 'Goto next [Q]uickfix item' })
+vim.keymap.set('n', '<leader>gQ', ':cprev<CR>zz', { desc = 'Goto previous [Q]uickfix item' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

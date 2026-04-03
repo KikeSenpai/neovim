@@ -88,6 +88,11 @@ vim.filetype.add {
   extension = {
     lock = 'toml',
   },
+  pattern = {
+    ['.*/templates/.*%.yaml'] = 'helm',
+    ['.*/templates/.*%.tpl'] = 'helm',
+    ['helmfile.*%.yaml'] = 'helm',
+  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et

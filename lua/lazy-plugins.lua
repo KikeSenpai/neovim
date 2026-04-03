@@ -47,7 +47,6 @@ require('lazy').setup {
   require 'kickstart.plugins.mini',
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.indent-blankline',
-  require 'kickstart.plugins.tree',
   require 'kickstart.plugins.colorscheme',
 
   -- TODO: Find a way to override default linter configuration or add one.
@@ -56,13 +55,14 @@ require('lazy').setup {
 
   -- NOTE: Plugins that I am testing so they don't form part of my permanent config.
   --
-  -- require 'test.plugins.avante',
-  -- require 'test.plugins.diagram',
-  -- require 'test.plugins.image',
-  -- require 'test.plugins.copilot',
-  -- require 'test.plugins.copilot-chat',
-  -- require 'test.plugins.codecompanion',
-  -- require 'test.plugins.img-clip',
+  -- require 'archived.plugins.avante',
+  -- require 'archived.plugins.diagram',
+  -- require 'archived.plugins.image',
+  -- require 'archived.plugins.copilot',
+  -- require 'archived.plugins.copilot-chat',
+  -- require 'archived.plugins.codecompanion',
+  -- require 'archived.plugins.img-clip',
+  -- require 'archived.plugins.tree',
 
   -- NOTE: You can add several plugins from a folder `lua/custom/plugins/*.lua`
   { import = 'custom.plugins' },
